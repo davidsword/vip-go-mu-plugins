@@ -11,6 +11,15 @@ class Dashboard {
 		add_action( 'network_admin_menu', array( __CLASS__, 'network_admin_menu' ) );
 		add_action( 'admin_bar_menu', array( __CLASS__, 'admin_bar_menu' ), 60 );
 		add_action( 'admin_print_styles', array( __CLASS__, 'hide_unsupported_features' ) );
+		add_filter( 'admin_footer_text', array( __CLASS__, 'admin_footer_text' ), 9999 );
+	}
+
+	public static function admin_footer_text( $text ) {
+		$screen = get_current_screen();
+		if ( false !== strpos( $screen->base, 'elasticpress' ) || 'ep-pointer' === $screen->post_type ) {
+			$text = '<p>Search on VIP is powered by <a href="https://10up.com/plugins/elasticpress/">10up\'s ElasticPress plugin</a>.</p>';
+		}
+		return $text;
 	}
 
 	/**
