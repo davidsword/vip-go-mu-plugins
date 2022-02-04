@@ -29,7 +29,7 @@ class Dashboard {
 		$screen = get_current_screen();
 		if ( 'toplevel_page_elasticpress' === $screen->base ) {
 			echo '<style>
-			div.ep-feature.ep-feature-autosuggest, div.ep-feature.ep-feature-documents, div.ep-feature.ep-feature-woocommerce {
+			div.ep-feature.ep-feature-autosuggest, div.ep-feature.ep-feature-documents {
 				display: none !important;
 			}
 			</style>';
